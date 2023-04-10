@@ -9,31 +9,40 @@
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
     <link rel="stylesheet" href="./assets/style.css" />
     <title>Weather Dashboard</title>
-    </head>
+</head>
 
-    <body>
-        <header>
-            <header class="p-5 mb-4 d-flex justify-content-center flex-column align-items-center">
-                <h1 class="display-3">Weather Dashboard</h1>
-        </header>
+<body>
 
-            <form id="city-weather">
-              <input id="city-input" class="input-info" type="text" placeholder="Enter the name of a city" />
-              <button id="submit" class="button-info" type="submit">
-                Search
-              </button>
-            </form>
 
-            <div id="search-history-container"> 
+    <div class="container-fluid">
+        <div class="navbar-container">
+            <div class="row navbar navbar-dark bg-dark">
+                <div class="col-12 text-center p-5 text">
+                    <h1 class="h1 text-light">Weather Dashboard</h1>
+                </div>
+            </div>
+            <div class="form-section">
+                <form id="city-weather">
+                    <input id="city-input" class="input-info" type="text" placeholder="Enter the name of a city" />
+                    <button id="submit" class="button-info" type="submit">
+                        Search
+                    </button>
+                </form>
+            </div>
+
+            <div id="search-history-container">
                 <p id="search-history">Search History: </p>
             </div>
-            
-            <div id="current-weather" class="d-flex flex-column justify-content-center align-items-center text-center">
-                <h2 id="city-display" class="city=display"></h2>
-                <h2 id="time-display"></h2>
-                <p id="wind"></p>
-                <p id="humidity"></p>
-                <p id="temperature"></p>
+
+            <div class="weather-section">
+                <div id="current-weather"
+                    class="d-flex flex-column justify-content-center align-items-center text-center">
+                    <h2 id="city-display" class="city=display"></h2>
+                    <h2 id="time-display"></h2>
+                    <p id="wind"></p>
+                    <p id="humidity"></p>
+                    <p id="temperature"></p>
+                </div>
             </div>
 
             <div id="forecast">
@@ -44,7 +53,7 @@
                         <p id="day1-temp"></p>
                         <p id="day1-humidity"></p>
                     </div>
-                     <div class="col-md-2">
+                    <div class="col-md-2">
                         <p id="day2"></p>
                         <p id="day2-temp"></p>
                         <p id="day2-humidity"></p>
@@ -67,15 +76,12 @@
 
 
 
-            </div>
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <!-- jQuery UI <script> tag -->
-     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
-    integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
-    crossorigin="anonymous"></script>
-    <script src="./assets/script.js"></script> 
+                </div>
+                <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+                <!-- jQuery UI <script> tag -->
+                <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+                <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+                    integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
+                <script src="./assets/script.js"></script>

@@ -1,0 +1,32 @@
+.form-section {
+    margin: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+}
+
+.weather-section {
+    margin: 20px;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border: 1px solid black;
+    border-style: solid;
+
+}
+
+#forecast {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.forecast-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 250px;
+    height: 200px;
+    border: 1px solid black;
+    padding: 10px;
+    background-color: aquamarine;
+}

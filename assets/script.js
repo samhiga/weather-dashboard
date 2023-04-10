@@ -3,31 +3,28 @@ var searchHistoryDisplay = document.getElementById("search-history");
 var cityWeatherForm = document.getElementById("city-weather");
 var cityList = document.getElementById("city-list");
 
-// var cityWeather = document.getElementById("city-weather");
-// function for showing search history
-function renderSearchHistory() {
-    searchHistoryDisplay.innerHTML = "";
+
+// function for showing search history and making button (couldn't get to work)
+// function renderSearchHistory() {
+//     searchHistoryDisplay.innerHTML = "";
   
     
-    for (var i = 0; i < searchHistory.length; i++) {
-      var button = document.createElement("button");
-      button.textContent = searchHistory[i];
-      button.setAttribute("class", "search-history-button");
-      searchHistoryDisplay.appendChild(button);
-    }
-  }
+//     for (var i = 0; i < searchHistory.length; i++) {
+//       var button = document.createElement("button");
+//       button.textContent = searchHistory[i];
+//       button.setAttribute("class", "search-history-button");
+//       searchHistoryDisplay.appendChild(button);
+//     }
+//   }
   
   
-  function handleSearchHistoryClick(event) {
-    
-    var cityName = event.target.textContent;
+//   function handleSearchHistoryClick(event) {
+//     var cityName = event.target.textContent;
   
-    
-    document.getElementById("city-input").value = cityName;
+//     document.getElementById("city-input").value = cityName;
   
-    
-    cityWeatherForm.dispatchEvent(new Event("submit"));
-  }
+//     cityWeatherForm.dispatchEvent(new Event("submit"));
+//   }
   
     // function for displaying current weather and upcoming forecast
  cityWeatherForm.addEventListener("submit", function(event){
