@@ -1,9 +1,36 @@
 var searchHistory = [];
 var searchHistoryDisplay = document.getElementById("search-history");
+var cityWeatherForm = document.getElementById("city-weather");
+var cityList = document.getElementById("city-list");
 
-var cityWeather = document.getElementById("city-weather");
-
-cityWeather.addEventListener("submit", function(event){
+// var cityWeather = document.getElementById("city-weather");
+// function for showing search history
+function renderSearchHistory() {
+    searchHistoryDisplay.innerHTML = "";
+  
+    
+    for (var i = 0; i < searchHistory.length; i++) {
+      var button = document.createElement("button");
+      button.textContent = searchHistory[i];
+      button.setAttribute("class", "search-history-button");
+      searchHistoryDisplay.appendChild(button);
+    }
+  }
+  
+  
+  function handleSearchHistoryClick(event) {
+    
+    var cityName = event.target.textContent;
+  
+    
+    document.getElementById("city-input").value = cityName;
+  
+    
+    cityWeatherForm.dispatchEvent(new Event("submit"));
+  }
+  
+    // function for displaying current weather and upcoming forecast
+ cityWeatherForm.addEventListener("submit", function(event){
     event.preventDefault();
     var cityInput = document.getElementById("city-input").value;
     console.log(cityInput);
@@ -51,6 +78,9 @@ cityWeather.addEventListener("submit", function(event){
 
             var forecastCard = document.createElement("div");
             forecastCard.classList.add("forecast-card");
+            forecastCard.style.display = "inline-block"
+            forecastCard.style.margin = "10px"
+            forecastCard.style.borderStyle = "solid"
             
             var forecastDate = document.createElement("h3");
             forecastDate.textContent = dayDate;
@@ -73,8 +103,8 @@ cityWeather.addEventListener("submit", function(event){
         }
     })
 
-    searchHistory.unshift(cityInput);
-    searchHistoryDisplay.textContent = "Search History: " + searchHistory.join(", ");
-})
-
+      searchHistory.unshift(cityInput);
+      searchHistoryDisplay.textContent = "Search History: " + searchHistory.join(", ");
+ })
+ 
   
