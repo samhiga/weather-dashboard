@@ -1,26 +1,40 @@
-var cityWeather = document.getElementById("city-weather")
+var searchHistory = [];
+var searchHistoryDisplay = document.getElementById("search-history");
 
-cityWeather.addEventListener("submit", function(event){
-    event.preventDefault()
-var cityInput = document.getElementById("city-input").value
-console.log(cityInput)
-var weatherForcast = "https://api.openweathermap.org/data/2.5/forecast?q="+cityInput+"&appid=ad7da4caf04d6e1954be62c0bd33ba95&units=imperial"
+var cityWeather = document.getElementById("city-weather");
 
-fetch(weatherForcast).then(function(response){
-return response.json()
-.then(function(data){
-console.log(data)
+ cityWeather.addEventListener("submit", function(event){
+     event.preventDefault();
+     var cityInput = document.getElementById("city-input").value;
+     console.log(cityInput);
+     var weatherForcast = "https://api.openweathermap.org/data/2.5/forecast?q="+cityInput+"&appid=ad7da4caf04d6e1954be62c0bd33ba95&units=imperial";
 
-var day = data.list[0]
+     fetch(weatherForcast).then(function(response){
+         return response.json()
+         .then(function(data){
+             console.log(data);
 
-var humidity = document.getElementById("humidity")
+             var day = data.list[0];
 
-var wind = document.getElementById("wind")
+             var currentTime = dayjs().format("h:mm A");
+             var currentDate = dayjs().format("dddd, MMMM D, YYYY");
 
-var temperature = document.getElementById("temperature")
-wind.textContent = "Wind "+ day.wind.speed + " MPH"
-humidity.textContent = "Humidity " + day.main.humidity + "%"
-temperature.textContent = "Temp "+ day.main.temp + "°F"
-})
-})
-})
+             var cityDisplay = document.getElementById("city-display");
+             var timeDisplay = document.getElementById("time-display");
+             var humidity = document.getElementById("humidity");
+             var wind = document.getElementById("wind");
+             var temperature = document.getElementById("temperature");
+
+             cityDisplay.textContent = "City: " + cityInput;
+             timeDisplay.textContent = "Current Time: " + currentTime + ", " + currentDate;
+
+             wind.textContent = "Wind "+ day.wind.speed + " MPH";
+             humidity.textContent = "Humidity " + day.main.humidity + "%";
+             temperature.textContent = "Temp "+ day.main.temp + "°F";
+
+             searchHistory.unshift(cityInput);
+            searchHistoryDisplay.textContent = "Search History: " + searchHistory.join(", ");
+         })
+     })
+ })
+
