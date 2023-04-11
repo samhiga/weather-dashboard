@@ -55,6 +55,13 @@ var cityList = document.getElementById("city-list");
         wind.textContent = "Wind "+ data.wind.speed + " MPH";
         humidity.textContent = "Humidity " + data.main.humidity + "%";
         temperature.textContent = "Temp "+ data.main.temp + "°F";
+
+        searchHistory.push(cityInput);
+        localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
+
+
+        renderSearchHistory();
+    
     })
 
     fetch(forecastAPI)
